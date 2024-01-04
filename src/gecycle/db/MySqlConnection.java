@@ -7,7 +7,7 @@ import java.sql.DriverManager;// mengimpor kelas DriverManager dari java.sql
 // membuat class MysqlConnection
 public class MySqlConnection {
     // koneksi ke database menggunakan MySql, username , password
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/pp2_membership";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/pp2_masyarakat";
     private final static String DB_USER = "root";
     private final static String  DB_PASS = "";
     
