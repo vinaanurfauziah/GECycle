@@ -3,6 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Rika%20Febriyanti/OneDrive/Documents/NetBeansProjects/GECycle/src/jenis/Jenis.java</file>
+            <file>file:/C:/Users/Rika%20Febriyanti/OneDrive/Documents/NetBeansProjects/GECycle/src/db/MySqlConnection.java</file>
+            <file>file:/C:/Users/Rika%20Febriyanti/OneDrive/Documents/NetBeansProjects/GECycle/src/login/Login.java</file>
+            <file>file:/C:/Users/Rika%20Febriyanti/OneDrive/Documents/NetBeansProjects/GECycle/src/dao/LoginDao.java</file>
+=======
             <file>file:/C:/Users/ACER/Dropbox/PC/Documents/NetBeansProjects/GECycle/src/jenis/JenisTableModel.java</file>
             <file>file:/C:/Users/ACER/Dropbox/PC/Documents/NetBeansProjects/GECycle/src/jenis/JenisFrame.java</file>
             <file>file:/C:/Users/ACER/Dropbox/PC/Documents/NetBeansProjects/GECycle/src/profil/EditProfile.java</file>
@@ -17,6 +23,7 @@
             <file>file:/C:/Users/ACER/Dropbox/PC/Documents/NetBeansProjects/GECycle/src/dao/RegisterDao.java</file>
             <file>file:/C:/Users/ACER/Dropbox/PC/Documents/NetBeansProjects/GECycle/src/db/MySqlConnection.java</file>
            
+>>>>>>> f4d114fe2239b818aba66737b04bb45850522459
         </group>
     </open-files>
 </project-private>
