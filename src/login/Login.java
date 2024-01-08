@@ -8,13 +8,26 @@ package login;
  *
  * @author ACER
  */
-public class Login extends javax.swing.JFrame {
 
+import db.MySqlConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+public class Login extends javax.swing.JFrame {
+    
+    Connection con = null;
+    ResultSet rs = null ;
+    PreparedStatement pst = null;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        
+        con =db.con();
     }
 
     /**
@@ -35,7 +48,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         textLogin = new javax.swing.JLabel();
         textEmail1 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,6 +68,11 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel2.setText("Don't have an account? Please, Register here!");
@@ -65,9 +83,9 @@ public class Login extends javax.swing.JFrame {
         textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textEmail1.setText("Username :");
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
 
@@ -95,7 +113,7 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textPw)
                                 .addComponent(textEmail1)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -106,7 +124,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(textEmail1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(textPw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -125,9 +143,34 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String un = username.getText();
+        String ps = password.getText();
+        
+        try {
+            String query = "SELECT * FROM masyarakat WHERE username=? AND password=?";
+            pst = con.prepareCall(query);
+            
+            pst.setString(1, un); //username
+            pst.setString(2, ps);//password
+            
+            rs=(ResultSet) pst.executeQuery();
+                if (rs.next()) { //its true Do this
+                    
+                    JOptionPane.showMessageDialog(rootPane, "Your Login...");
+                    
+                }else {
+                    JOptionPane.showMessageDialog(rootPane, "Your Login failed...");
+                }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +211,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField email;
     private javax.swing.JLabel imgLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -177,9 +219,23 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel textEmail1;
     private javax.swing.JLabel textLogin;
     private javax.swing.JLabel textPw;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 
     public void setEmail(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    private static class db {
+
+        private static Connection con() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public db() {
+        }
+    }
 }
+
+
+    
