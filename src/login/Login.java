@@ -26,21 +26,68 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        imgLogin = new javax.swing.JLabel();
+        textPw = new javax.swing.JLabel();
+        password = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        textLogin = new javax.swing.JLabel();
+        textEmail1 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gambarLogin.png"))); // NOI18N
+        imgLogin.setText("jLabel1");
+        getContentPane().add(imgLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -20, 460, 400));
+
+        textPw.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textPw.setText("Password :");
+        getContentPane().add(textPw, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 220, 40));
+
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 220, 40));
+
+        textLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        textLogin.setText("Login");
+        getContentPane().add(textLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+
+        textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textEmail1.setText("Email :");
+        getContentPane().add(textEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+
+        btnLogin.setBackground(new java.awt.Color(234, 234, 234));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogin.setText("Login");
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 90, 40));
+
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 254, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 304, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 260, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,12 +118,26 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
+                System.out.print("hi");
                 new Login().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JTextField email;
+    private javax.swing.JLabel imgLogin;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField password;
+    private javax.swing.JLabel textEmail1;
+    private javax.swing.JLabel textLogin;
+    private javax.swing.JLabel textPw;
     // End of variables declaration//GEN-END:variables
+
+    public void setEmail(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
