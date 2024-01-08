@@ -27,8 +27,6 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         imgLogin = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        textEmail1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         textPw = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
@@ -36,6 +34,8 @@ public class Login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         textLogin = new javax.swing.JLabel();
+        textEmail1 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,17 +43,6 @@ public class Login extends javax.swing.JFrame {
         imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gambarLogin.png"))); // NOI18N
         imgLogin.setText("jLabel1");
         getContentPane().add(imgLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -20, 460, 400));
-
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 220, 40));
-
-        textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textEmail1.setText("Email :");
-        getContentPane().add(textEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -63,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel1.setText("Forgot password?");
 
-        btnLogin.setBackground(new java.awt.Color(234, 234, 234));
+        btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setText("Login");
 
@@ -72,6 +61,15 @@ public class Login extends javax.swing.JFrame {
 
         textLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         textLogin.setText("Login");
+
+        textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textEmail1.setText("Email :");
+
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,19 +89,25 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textPw)))))
+                                .addComponent(textPw)
+                                .addComponent(textEmail1)
+                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(textLogin)
-                .addGap(73, 73, 73))
+                .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addComponent(textLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(textEmail1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textPw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
