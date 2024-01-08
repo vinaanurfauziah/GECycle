@@ -125,7 +125,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="digunakan lagi , ketinggalan zaman, rusak"/>
+            <Property name="text" type="java.lang.String" value="digunakan lagi , ketinggalan zaman, rusak."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">

@@ -49,7 +49,7 @@ public class detail extends javax.swing.JFrame {
 
         jLabel4.setText("Jenis peralatan it seperti laptop, pc, keyboard , mouse, proyektor. biasanya semua peralatan tersebut sudah tidak  ");
 
-        jLabel5.setText("digunakan lagi , ketinggalan zaman, rusak");
+        jLabel5.setText("digunakan lagi , ketinggalan zaman, rusak.");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-left-arrow-48-removebg-preview.png"))); // NOI18N
 
