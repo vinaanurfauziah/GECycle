@@ -28,7 +28,6 @@ public class Login extends javax.swing.JFrame {
 
         imgLogin = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        textLogin = new javax.swing.JLabel();
         textEmail1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         textPw = new javax.swing.JLabel();
@@ -36,6 +35,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        textLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,10 +50,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 220, 40));
-
-        textLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        textLogin.setText("Login");
-        getContentPane().add(textLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
         textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textEmail1.setText("Email :");
@@ -73,6 +69,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel2.setText("Don't have an account? Please, Register here!");
+
+        textLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        textLogin.setText("Login");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -94,11 +93,17 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textPw)))))
                 .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(textLogin)
+                .addGap(73, 73, 73))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(textLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(textPw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
