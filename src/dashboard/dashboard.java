@@ -4,6 +4,9 @@
  */
 package dashboard;
 
+import profil.Profile;
+
+
 /**
  *
  * @author ACER
@@ -26,21 +29,161 @@ public class dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        keRumahTanggaBesar = new javax.swing.JButton();
+        keRumahTanggaKecil = new javax.swing.JButton();
+        kePeralatanIT = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        keSetting = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/WhatsApp Image 2024-01-09 at 14.43.21.jpeg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 140));
+
+        jPanel2.setBackground(new java.awt.Color(187, 187, 187));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/OIP__2_-removebg-preview.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pc-removebg-preview.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/download-removebg-preview (1).png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+
+        keRumahTanggaBesar.setBackground(new java.awt.Color(78, 80, 82));
+        keRumahTanggaBesar.setForeground(new java.awt.Color(255, 255, 255));
+        keRumahTanggaBesar.setText("Rumah Tangga Besar");
+        keRumahTanggaBesar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keRumahTanggaBesarActionPerformed(evt);
+            }
+        });
+
+        keRumahTanggaKecil.setBackground(new java.awt.Color(78, 80, 82));
+        keRumahTanggaKecil.setForeground(new java.awt.Color(255, 255, 255));
+        keRumahTanggaKecil.setText("Rumah Tangga Kecil");
+
+        kePeralatanIT.setBackground(new java.awt.Color(78, 80, 82));
+        kePeralatanIT.setForeground(new java.awt.Color(255, 255, 255));
+        kePeralatanIT.setText("Peralatan IT");
+        kePeralatanIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kePeralatanITActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("Jenis Sampah");
+
+        keSetting.setBackground(new java.awt.Color(187, 187, 187));
+        keSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/settings.png"))); // NOI18N
+        keSetting.setBorder(null);
+        keSetting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keSettingActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(keSetting)
+                .addGap(26, 26, 26))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(keRumahTanggaBesar)
+                .addGap(66, 66, 66)
+                .addComponent(keRumahTanggaKecil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kePeralatanIT)
+                .addGap(91, 91, 91))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(keSetting))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(keRumahTanggaKecil)
+                    .addComponent(keRumahTanggaBesar)
+                    .addComponent(kePeralatanIT))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel5)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 660, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void keRumahTanggaBesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keRumahTanggaBesarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_keRumahTanggaBesarActionPerformed
+
+    private void keSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keSettingActionPerformed
+        // TODO add your handling code here:
+        Profile Profile = new Profile();
+        Profile.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_keSettingActionPerformed
+
+    private void kePeralatanITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kePeralatanITActionPerformed
+        // TODO add your handling code here:
+        detail detail = new detail();
+        detail.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_kePeralatanITActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +221,17 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton kePeralatanIT;
+    private javax.swing.JButton keRumahTanggaBesar;
+    private javax.swing.JButton keRumahTanggaKecil;
+    private javax.swing.JButton keSetting;
     // End of variables declaration//GEN-END:variables
 }
