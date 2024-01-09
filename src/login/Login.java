@@ -8,13 +8,30 @@ package login;
  *
  * @author ACER
  */
-public class Login extends javax.swing.JFrame {
 
+import db.MySqlConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import dashboard.dashboard;
+import register.Register;
+
+public class Login extends javax.swing.JFrame {
+    
+    Connection con = null;
+    ResultSet rs = null ;
+    PreparedStatement pst = null;
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws SQLException {
         initComponents();
+        
+        con = MySqlConnection.mycon();
     }
 
     /**
@@ -27,13 +44,15 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         imgLogin = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         textPw = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        linkRegister = new javax.swing.JLabel();
         textLogin = new javax.swing.JLabel();
         textEmail1 = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        username = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -42,42 +61,90 @@ public class Login extends javax.swing.JFrame {
         imgLogin.setText("jLabel1");
         getContentPane().add(imgLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -20, 460, 400));
 
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         textPw.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textPw.setText("Password :");
-        getContentPane().add(textPw, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 220, 40));
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        jLabel1.setText("Forgot Password?");
+
+        btnLogin.setBackground(new java.awt.Color(204, 204, 204));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 220, 40));
+
+        linkRegister.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        linkRegister.setText("Don't have an account? Please, Register here!");
+        linkRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                linkRegisterMouseClicked(evt);
+            }
+        });
 
         textLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         textLogin.setText("Login");
-        getContentPane().add(textLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
         textEmail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        textEmail1.setText("Email :");
-        getContentPane().add(textEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+        textEmail1.setText("Username :");
 
-        btnLogin.setBackground(new java.awt.Color(234, 234, 234));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLogin.setText("Login");
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 90, 40));
-
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(textLogin)
+                .addGap(71, 71, 71))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(77, 77, 77)
+                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(linkRegister))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textPw)
+                                .addComponent(textEmail1)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 304, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(textLogin)
+                .addGap(12, 12, 12)
+                .addComponent(textEmail1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(textPw)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(linkRegister)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 260, 310));
@@ -85,9 +152,42 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String un = username.getText();
+        String ps = password.getText();
+        
+        try {
+            String query = "SELECT * FROM masyarakat WHERE username=? AND password=?";
+            pst = con.prepareCall(query);
+            
+            pst.setString(1, un); //username
+            pst.setString(2, ps);//password
+            
+            rs=(ResultSet) pst.executeQuery();
+                if (rs.next()) { //its true Do this
+                    
+                    JOptionPane.showMessageDialog(rootPane, "Your Login...");  
+                    new dashboard().setVisible(true);
+                    this.setVisible(false);
+                }else {
+                    JOptionPane.showMessageDialog(rootPane, "Your Login failed...");
+                }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void linkRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkRegisterMouseClicked
+        // TODO add your handling code here:
+        
+        new Register().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_linkRegisterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -121,23 +221,48 @@ public class Login extends javax.swing.JFrame {
             
             public void run() {
                 System.out.print("hi");
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField email;
     private javax.swing.JLabel imgLogin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel linkRegister;
     private javax.swing.JTextField password;
     private javax.swing.JLabel textEmail1;
     private javax.swing.JLabel textLogin;
     private javax.swing.JLabel textPw;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 
     public void setEmail(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    private static class db {
+
+        private static Connection con() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public db() {
+        }
+    }
+
+    public static class setVisible {
+
+        public setVisible(boolean b) {
+        }
+    }
 }
+
+
+    
